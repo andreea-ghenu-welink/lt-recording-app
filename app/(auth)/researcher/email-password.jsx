@@ -1,12 +1,18 @@
-import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { useRouter, useLocalSearchParams } from "expo-router";
 
 export default function ResearcherEmailPassword() {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const router = useRouter();
   const params = useLocalSearchParams();
-  const email = params.email || 'your.email@gmail.com';
+  const email = params.email || "your.email@gmail.com";
 
   const handleLogin = () => {
     // Handle password login
@@ -14,7 +20,10 @@ export default function ResearcherEmailPassword() {
   };
 
   const handleCodeLogin = () => {
-    router.push('/(auth)/researcher/email-code');
+    router.push({
+      pathname: "/(auth)/researcher/email-code",
+      params: { email: email },
+    });
   };
 
   return (
@@ -48,7 +57,10 @@ export default function ResearcherEmailPassword() {
           <View style={styles.dividerLine} />
         </View>
 
-        <TouchableOpacity onPress={handleCodeLogin}>
+        <TouchableOpacity
+          onPress={handleCodeLogin}
+          style={styles.codeLoginButton}
+        >
           <Text style={styles.codeLoginText}>Log in with a code instead</Text>
         </TouchableOpacity>
       </View>
@@ -59,7 +71,7 @@ export default function ResearcherEmailPassword() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 24,
   },
   content: {
@@ -67,13 +79,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '600',
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
     marginBottom: 16,
   },
   email: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
     marginBottom: 32,
   },
   inputContainer: {
@@ -81,50 +93,54 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
     marginBottom: 8,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 4,
     padding: 16,
     fontSize: 16,
   },
   loginButton: {
-    backgroundColor: '#074566',
+    backgroundColor: "#074566",
     paddingVertical: 16,
-    alignItems: 'center',
+    alignItems: "center",
   },
   disabledButton: {
     opacity: 0.5,
   },
   loginButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: 32,
   },
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#ddd',
+    backgroundColor: "#ddd",
   },
   dividerText: {
     marginHorizontal: 16,
-    color: '#666',
+    color: "#666",
     fontSize: 14,
   },
-  codeLoginText: {
-    color: '#074566',
-    fontSize: 16,
-    textAlign: 'center',
+  codeLoginButton: {
     borderWidth: 2,
     borderColor: "#074566",
-    paddingVertical: 14
+    paddingVertical: 14,
+    alignItems: "center",
+  },
+  codeLoginText: {
+    color: "#074566",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });

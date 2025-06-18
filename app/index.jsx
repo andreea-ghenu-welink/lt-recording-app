@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { useRouter } from 'expo-router';
+import { useState } from "react";
+import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { useRouter } from "expo-router";
 
 export default function AuthScreen() {
-  const [activeScreen, setActiveScreen] = useState('researcher');
+  const [activeScreen, setActiveScreen] = useState("researcher");
   const router = useRouter();
 
   const handleEmailContinue = () => {
@@ -21,21 +21,21 @@ export default function AuthScreen() {
       <View>
         <Text style={styles.title}>Login in or sign up in seconds</Text>
         <View style={styles.navLinksContainer}>
-          <TouchableOpacity onPress={() => setActiveScreen('researcher')}>
+          <TouchableOpacity onPress={() => setActiveScreen("researcher")}>
             <Text
               style={[
                 styles.navLink,
-                activeScreen === "researcher" && styles.activeNavLink
+                activeScreen === "researcher" && styles.activeNavLink,
               ]}
             >
               Researcher
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setActiveScreen('institution')}>
+          <TouchableOpacity onPress={() => setActiveScreen("institution")}>
             <Text
               style={[
                 styles.navLink,
-                activeScreen === "institution" && styles.activeNavLink
+                activeScreen === "institution" && styles.activeNavLink,
               ]}
             >
               Institution
@@ -44,17 +44,26 @@ export default function AuthScreen() {
         </View>
 
         <View style={styles.ctaLinkContainer}>
-          {activeScreen === 'researcher' ? (
+          {activeScreen === "researcher" ? (
             <>
-              <TouchableOpacity style={styles.ctaLink} onPress={handleORCIDContinue}>
+              <TouchableOpacity
+                style={styles.ctaLink}
+                onPress={handleORCIDContinue}
+              >
                 <Text style={styles.ctaLinkText}>Continue with ORCID</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.ctaLink} onPress={handleEmailContinue}>
+              <TouchableOpacity
+                style={styles.ctaLink}
+                onPress={handleEmailContinue}
+              >
                 <Text style={styles.ctaLinkText}>Continue with Email</Text>
               </TouchableOpacity>
             </>
           ) : (
-            <TouchableOpacity style={styles.ctaLink} onPress={handleEmailContinue}>
+            <TouchableOpacity
+              style={styles.ctaLink}
+              onPress={handleEmailContinue}
+            >
               <Text style={styles.ctaLinkText}>Continue with Email</Text>
             </TouchableOpacity>
           )}
@@ -62,8 +71,9 @@ export default function AuthScreen() {
       </View>
 
       <Text style={styles.termsText}>
-        By continuing, you agree to LT's <Text style={{fontStyle: "italic"}}>Terms of Use</Text>. Read our <Text
-        style={{fontStyle: "italic"}}>Privacy Policy</Text>.
+        By continuing, you agree to LT"s{" "}
+        <Text style={{ fontStyle: "italic" }}>Terms of Use</Text>. Read our{" "}
+        <Text style={{ fontStyle: "italic" }}>Privacy Policy</Text>.
       </Text>
       <StatusBar style="auto" />
     </View>
@@ -125,6 +135,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "gray",
     lineHeight: 30,
-    marginBottom: 32
+    marginBottom: 32,
   },
 });

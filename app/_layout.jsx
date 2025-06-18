@@ -1,16 +1,6 @@
-import { Stack } from "expo-router";
-import { Image, View } from "react-native";
-
-function HeaderLogo() {
-  return (
-    <View style={{ alignItems: "center", paddingBlock: 8 }}>
-      <Image
-        source={require("../assets/lt-logo.png")}
-        style={{ width: 100, height: 80, resizeMode: "contain" }}
-      />
-    </View>
-  );
-}
+import {Stack} from "expo-router";
+import {Image, StatusBar, View} from "react-native";
+import CustomHeader from "../components/CustomHeader";
 
 export default function RootLayout() {
   return (
@@ -21,7 +11,7 @@ export default function RootLayout() {
         },
         headerShadowVisible: false,
         headerTitleAlign: "center",
-        headerTitle: () => <HeaderLogo />,
+        headerTitle: () => <CustomHeader/>,
       }}
     >
       <Stack.Screen

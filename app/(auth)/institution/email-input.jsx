@@ -1,15 +1,21 @@
-import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { useRouter } from "expo-router";
 
 export default function InstitutionEmail() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const router = useRouter();
 
   const handleContinue = () => {
     // Here you would check if the account exists
     // For now, let's assume it exists and navigate to password screen
-    router.push('/(auth)/institution/email-password');
+    router.push("/(auth)/institution/email-password");
   };
 
   return (
@@ -17,7 +23,7 @@ export default function InstitutionEmail() {
       <View style={styles.content}>
         <Text style={styles.title}>Continue with Email</Text>
         <Text style={styles.subtitle}>
-          We'll check if you have an account, and help create one if you don't.
+          We"ll check if you have an account, and help create one if you don"t.
         </Text>
 
         <View style={styles.inputContainer}>
@@ -47,7 +53,7 @@ export default function InstitutionEmail() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 24,
   },
   content: {
@@ -55,13 +61,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '600',
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
     marginBottom: 16,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
     lineHeight: 24,
     marginBottom: 32,
   },
@@ -70,28 +76,29 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
     marginBottom: 8,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 4,
     padding: 16,
     fontSize: 16,
   },
   continueButton: {
-    backgroundColor: '#074566',
+    backgroundColor: "#074566",
     paddingVertical: 16,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 16,
   },
   disabledButton: {
     opacity: 0.5,
   },
   continueButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 });
