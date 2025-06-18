@@ -1,5 +1,4 @@
 import {Stack} from "expo-router";
-import {Image, StatusBar, View} from "react-native";
 import CustomHeader from "../components/CustomHeader";
 
 export default function RootLayout() {

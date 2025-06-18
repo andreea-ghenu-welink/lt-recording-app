@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
+import Button from "@/components/Button";
 
 export default function AuthScreen() {
   const [activeScreen, setActiveScreen] = useState("researcher");
@@ -46,26 +47,23 @@ export default function AuthScreen() {
         <View style={styles.ctaLinkContainer}>
           {activeScreen === "researcher" ? (
             <>
-              <TouchableOpacity
-                style={styles.ctaLink}
+              <Button
+                title="Continue with ORCID"
+                type="outline"
                 onPress={handleORCIDContinue}
-              >
-                <Text style={styles.ctaLinkText}>Continue with ORCID</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.ctaLink}
+              />
+              <Button
+                title="Continue with Email"
+                type="outline"
                 onPress={handleEmailContinue}
-              >
-                <Text style={styles.ctaLinkText}>Continue with Email</Text>
-              </TouchableOpacity>
+              />
             </>
           ) : (
-            <TouchableOpacity
-              style={styles.ctaLink}
+            <Button
+              title="Continue with Email"
+              type="outline"
               onPress={handleEmailContinue}
-            >
-              <Text style={styles.ctaLinkText}>Continue with Email</Text>
-            </TouchableOpacity>
+            />
           )}
         </View>
       </View>
